@@ -108,6 +108,7 @@ module.exports = {
 (function () {
   this.parserOptions.sourceType = "module";
   this.parserOptions.ecmaFeatures.impliedStrict = true;
+
   this.env.browser = true;
   this.env.node = true;
   this.env.es6 = true;
@@ -134,13 +135,33 @@ module.exports.overrides.push({
     "@typescript-eslint",
   ],
   rules: {
-    "@typescript-eslint/semi": ["error"],
+    "@typescript-eslint/semi": [
+      "error",
+    ],
     "@typescript-eslint/indent": [
       "error",
       2,
     ],
     "@typescript-eslint/quotes": ["error"],
-    "@typescript-eslint/comma-dangle": ["error"],
+    "@typescript-eslint/member-ordering": [
+      "error",
+    ],
+    "@typescript-eslint/no-inferrable-types": [
+      "off",
+    ],
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "semi",
+          "requireLast": true,
+        },
+        "singleline": {
+          "delimiter": "semi",
+          "requireLast": true,
+        },
+      },
+    ],
   },
   extends: [
     "plugin:@typescript-eslint/recommended",
