@@ -46,7 +46,9 @@ module.exports = {
       "embertest",
       "webextensions",
       "greasemonkey",
-    ].forEach(function (value) { envs[value] = !value; });
+    ].forEach(function (value) {
+      envs[value] = !value;
+    });
     return envs;
   })(),
   globals: {},
