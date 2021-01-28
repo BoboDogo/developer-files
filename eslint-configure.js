@@ -117,10 +117,9 @@ module.exports = {
   this.env["es" + new Date().getFullYear()] = true;
 }).call(module.exports);
 
-// Modify configuration can used to TypeScript. If want this
-// status is success, you should install some dependencies.
+// TypeScript support.
 //
-// Dependencies install command:
+// Dependencies install command(basic on ESLint):
 //  npm install --save-dev typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin
 module.exports.overrides.push({
   files: [
@@ -130,21 +129,12 @@ module.exports.overrides.push({
   parserOptions: {
     project: "./tsconfig.json",
     tsconfigRootDir: __dirname,
-    extraFileExtensions: [".vue"],
   },
   parser: "@typescript-eslint/parser",
   plugins: [
     "@typescript-eslint",
   ],
   rules: {
-    "@typescript-eslint/semi": [
-      "error",
-    ],
-    "@typescript-eslint/indent": [
-      "error",
-      2,
-    ],
-    "@typescript-eslint/quotes": ["error"],
     "@typescript-eslint/member-ordering": [
       "error",
     ],
@@ -168,5 +158,22 @@ module.exports.overrides.push({
   extends: [
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
+  ],
+});
+
+// Vue support.
+//
+// Dependencies install command(basic on ESLint):
+//  npm install --save-dev eslint-plugin-vue
+module.exports.overrides.push({
+  files: [
+    "*.vue",
+  ],
+  parserOptions: {
+    parser: "@typescript-eslint/parser",
+  },
+  parser: "vue-eslint-parser",
+  extends: [
+    "plugin:vue/essential",
   ],
 });
