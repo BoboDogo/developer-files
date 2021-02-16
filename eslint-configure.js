@@ -173,6 +173,19 @@ module.exports.overrides.push({
     parser: "@typescript-eslint/parser",
   },
   parser: "vue-eslint-parser",
+  rules: {
+    "indent": [
+      "off",
+    ],
+    "vue/script-indent": [
+      "error",
+      2,
+    ],
+    "vue/html-comment-indent": [
+      "error",
+      2,
+    ],
+  },
   extends: [
     "plugin:vue/essential",
   ],
